@@ -12,7 +12,11 @@ public class LocalTest {
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
         Statement stmt = conn.createStatement();
+
         ResultSet rs = stmt.executeQuery("SELECT * from testphone_1");
+        /*
+        execsql 自动执行sql脚本文件 待补全
+         */
         while (rs.next()) {
             System.out.println(rs.getString("brand"));
         }
