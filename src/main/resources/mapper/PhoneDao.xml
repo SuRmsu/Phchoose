@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+    <mapper namespace="com.surm.phchoose.dao.PhoneDao">
+    <resultMap type="com.surm.phchoose.entity.Phone" id="PhoneResult">
+        <result property="id" column="id" />
+        <result property="brand" column="brand" />
+        <result property="cpu" column="cpu" />
+        <result property="battery" column="battery" />
+    </resultMap>
+
+    <select id="findAllPhones" resultMap="PhoneResult">
+        select id,brand,cpu,battery from testphone_1 order by id desc
+    </select>
+
+    <insert id="insertPhone" parameterType="com.surm.phchoose.entity.Phone">
+        insert into testphone_1(id,brand,cpu,battery) values (#{id},#{brand},#{cpu},#{battery})
+    </insert>
+
+    <update id="updatePhone" parameterType="com.surm.phchoose.entity.Phone">
+        update testphone_1 set brand=#{brand},cpu=#{cpu},battery=#{battery} where id=#{id}
+    </update>
+
+    <delete id="deletePhone" parameterType="String">
+        delete from testphone_1 where id=#{id}
+    </delete>
+
+
+</mapper>
