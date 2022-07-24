@@ -1,5 +1,8 @@
 package com.surm.phchoose.entity;
 
+import org.springframework.stereotype.Repository;
+
+@Repository
 public class Phone {
     private String Id;
     private String Brand;
